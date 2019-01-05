@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>PCTE Time Table</title>
+
+  <!-- Icon -->
+  <link rel="icon" href="./static/logo.png" type="image/png" />
+
+  <!-- PWA -->
+  <meta name="theme-color" content="#f5f5f5" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../node_modules/bulma/css/bulma.min.css" />
+  <link rel="stylesheet" href="./main.css" />
+</head>
+
+<body>
+  <div id="app">
+    <!-- Hero -->
+    <section class="hero is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">{{ table.class }}</h1>
+          <h2 class="subtitle">{{ table.date }}</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section -->
+    <section v-for="item in table.data" :id="item.day" class="section">
+      <div class="container">
+        <h1 class="title">{{ item.day }}</h1>
+        <div v-for="lecture in item.lectures" class="meta">
+          <h2 class="subtitle">
+            <v-icon name="clock"></v-icon> {{ lecture.time }}
+          </h2>
+          <div class="notification" :class="getColor(lecture.subject.code)">
+            <p v-show="lecture.subject" class="text-truncate">
+              <v-icon name="book"></v-icon> {{ lecture.subject.code }} &ndash; {{ lecture.subject.name }}
+            </p>
+            <p v-show="lecture.faculty" class="text-truncate">
+              <v-icon name="user"></v-icon> {{ lecture.faculty.code }} &ndash; {{ lecture.faculty.name }}
+            </p>
+            <p v-show="lecture.room">
+              <v-icon name="map-pin"></v-icon> {{ lecture.room }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <strong>PCTE Time Table</strong> by <a href="https://nerkarso.github.io" target="_blank">Ner karso</a>
+      </div>
+    </footer>
+
+    <!-- FAB -->
+    <a :href="weekDay" class="fab">
+      <v-icon name="calendar"></v-icon>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./main.js"></script>
+</body>
+
+</html>
