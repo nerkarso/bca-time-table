@@ -74,9 +74,11 @@ new Vue({
     // Go to first week day
     this.$router.push(this.weekDays[0]);
   },
-  data: {
-    table: Table,
-    weekDays: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  data() {
+    return {
+      table: Table,
+      weekDays: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    }
   },
   computed: {
     // Week Day
