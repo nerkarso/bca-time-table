@@ -5,16 +5,19 @@ import Table from "../data/table.json";
 import feather from "vue-icon";
 Vue.use(feather, "v-icon");
 
-// App
-new Vue({
-  el: "#app",
-  data: {
-    table: Table
-  },
+// Vue Router
+import VueRouter from "vue-router";
+Vue.use(VueRouter);
+
+// Component Day View
+const DayView = {
+  template: "#dayview-template",
   computed: {
-    // Week Day
-    weekDay() {
-      return "./#" + this.getWeekDay();
+    data() {
+      for (const value of Table.data) {
+        // Check if day matches
+        if (value.day == this.$route.params.id) return value;
+      }
     }
   },
   methods: {
@@ -50,24 +53,36 @@ new Vue({
         default:
           return "is-light";
       }
-    },
-    /**
-     * Get Week Day
-     * 
-     * @returns {string} name of week day.
-     */
-    getWeekDay() {
-      const date = new Date();
-      const weekDay = new Array(7);
-      weekDay[0] = "Sunday";
-      weekDay[1] = "Monday";
-      weekDay[2] = "Tuesday";
-      weekDay[3] = "Wednesday";
-      weekDay[4] = "Thursday";
-      weekDay[5] = "Friday";
-      weekDay[6] = "Saturday";
+    }
+  }
+};
 
-      return weekDay[date.getDay()];
+// Create the router instance
+const router = new VueRouter({
+  linkActiveClass: "is-active",
+  routes: [{
+    path: "/:id",
+    component: DayView
+  }]
+});
+
+// App
+new Vue({
+  el: "#app",
+  router,
+  mounted() {
+    // Go to first week day
+    this.$router.push(this.weekDays[0]);
+  },
+  data: {
+    table: Table,
+    weekDays: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  },
+  computed: {
+    // Week Day
+    weekDay() {
+      const date = new Date();
+      return this.weekDays[date.getDay() + 1];
     }
   }
 });
