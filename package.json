@@ -1,6 +1,6 @@
 {
   "name": "pcte-time-table",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A human readable format of the PCTE time table.",
   "author": "Ner Karso",
   "license": "ISC",
@@ -11,7 +11,8 @@
   "scripts": {
     "start": "parcel ./src/index.html --no-cache",
     "build": "parcel build ./src/index.html -d build/ --no-cache --no-source-maps --public-url ./",
-    "export": "node ./scripts/index.js"
+    "export": "node ./scripts/export.js",
+    "deploy:local": "node ./scripts/deploy.js"
   },
   "dependencies": {
     "bulma": "^0.7.2",
