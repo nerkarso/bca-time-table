@@ -68,7 +68,9 @@
     </section>
 
     <!-- Route Outlet -->
-    <router-view></router-view>
+    <transition name="slide" mode="out-in">
+      <router-view :key="$route.fullPath"></router-view>
+    </transition>
 
     <!-- Footer -->
     <footer class="footer">
