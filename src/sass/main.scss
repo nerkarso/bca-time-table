@@ -6,13 +6,15 @@
   vertical-align: middle;
 }
 
-.meta .icon {
-  height: 1.25rem;
-  margin-top: -5px;
-}
+.meta {
+  .icon {
+    height: 1.25rem;
+    margin-top: -5px;
+  }
 
-.meta .notification .icon {
-  height: 1rem;
+  .notification .icon {
+    height: 1rem;
+  }
 }
 
 /**
@@ -23,8 +25,14 @@
   margin-bottom: 2rem;
 }
 
-.meta .notification {
-  padding: 1.25rem 1rem;
+.meta {
+  .subtitle {
+    margin-bottom: 1rem;
+  }
+
+  .notification {
+    padding: 1.25rem 1rem;
+  }
 }
 
 /**
@@ -32,14 +40,6 @@
  */
 
 .hero-body {
-  padding: 2rem 1rem;
-}
-
-/**
- * Section
- */
-
-.section {
   padding: 2rem 1rem;
 }
 

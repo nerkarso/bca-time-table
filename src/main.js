@@ -30,25 +30,25 @@ const DayView = {
     getColor(code) {
       switch (code) {
         case "BSBC201":
-          return "is-warning";
+          return "is-yellow";
           break;
         case "BSBC202":
-          return "is-danger";
+          return "is-turquoise";
           break;
         case "BSBC203":
-          return "is-info";
+          return "is-orange";
           break;
         case "BSBC204":
-          return "is-link";
+          return "is-cyan";
           break;
         case "BSBC205":
-          return "is-primary";
+          return "is-purple";
           break;
         case "BSBC206":
           return "is-dark";
           break;
-        case "EVSC":
-          return "is-success";
+        case "EVSC101":
+          return "is-green";
           break;
         default:
           return "is-light";
