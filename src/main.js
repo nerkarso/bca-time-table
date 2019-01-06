@@ -5,19 +5,12 @@ import Table from "../data/table.json";
 import feather from "vue-icon";
 Vue.use(feather, "v-icon");
 
-// Vue Router
-import VueRouter from "vue-router";
-Vue.use(VueRouter);
-
 // Component Day View
-const DayView = {
+const DayView = Vue.component("dayview", {
   template: "#dayview-template",
-  computed: {
-    data() {
-      for (const value of Table.data) {
-        // Check if day matches
-        if (value.day == this.$route.params.id) return value;
-      }
+  data() {
+    return {
+      data: Table.data
     }
   },
   methods: {
@@ -55,36 +48,19 @@ const DayView = {
       }
     }
   }
-};
-
-// Create the router instance
-const router = new VueRouter({
-  linkActiveClass: "is-active",
-  routes: [{
-    path: "/:id",
-    component: DayView
-  }]
 });
 
 // App
 new Vue({
   el: "#app",
-  router,
-  mounted() {
-    // Go to first week day
-    this.$router.push(this.weekDays[0]);
-  },
   data() {
     return {
       table: Table,
       weekDays: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     }
   },
-  computed: {
-    // Week Day
-    weekDay() {
-      const date = new Date();
-      return this.weekDays[date.getDay() + 1];
-    }
+  computed: {},
+  components: {
+    DayView
   }
 });

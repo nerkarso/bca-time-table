@@ -33,19 +33,17 @@
         <nav class="tabs is-boxed is-fullwidth">
           <div class="container">
             <ul>
-              <router-link v-for="(weekDay, index) in weekDays" :key="index" tag="li" :to="weekDay">
-                <a>{{ weekDay }}</a>
-              </router-link>
+              <li v-for="(weekDay, index) in weekDays" :key="index">
+                <a :href="'./#' + weekDay">{{ weekDay }}</a>
+              </li>
             </ul>
           </div>
         </nav>
       </div>
     </section>
 
-    <!-- Route Outlet -->
-    <transition name="slide" mode="out-in">
-      <router-view :key="$route.fullPath"></router-view>
-    </transition>
+    <!-- Component Day View -->
+    <dayview></dayview>
 
     <!-- Footer -->
     <footer class="footer">
@@ -53,14 +51,19 @@
         <strong>PCTE Time Table</strong> by <a href="https://nerkarso.github.io" target="_blank">Ner karso</a>
       </div>
     </footer>
+
+    <!-- FAB -->
+    <a href="./#" class="fab" title="Back to top">
+      <v-icon name="chevron-up"></v-icon>
+    </a>
   </div>
 
-  <!-- Template for Day View -->
+  <!-- Template Day View -->
   <template id="dayview-template">
-    <section class="section">
-      <div class="container">
-        <h1 class="title is-size-4">{{ data.day }}</h1>
-        <div v-for="lecture in data.lectures" class="meta">
+    <div class="container">
+      <section v-for="item in data" :id="item.day" class="section">
+        <h1 class="title is-size-4">{{ item.day }}</h1>
+        <div v-for="lecture in item.lectures" class="meta">
           <h2 class="subtitle">
             <v-icon name="clock"></v-icon> {{ lecture.time }}
           </h2>
@@ -76,8 +79,8 @@
             </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </template>
 
   <!-- Scripts -->

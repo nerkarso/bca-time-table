@@ -14,6 +14,9 @@ $red: hsl(359, 100%, 45%);
 // Update Bulma's global variables
 $primary: $blue;
 $link: $red;
+$link-hover: $red;
+$link-active: $red;
+
 $custom-colors: ("red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "turquoise": $turquoise, "cyan": $cyan, "blue": $blue, "purple": $purple);
 
 // Update some of Bulma's component variables
