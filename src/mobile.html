@@ -29,11 +29,11 @@
           <nav class="tabs is-boxed is-fullwidth">
             <div class="container">
               <ul>
-                <router-link v-for="(weekDay, index) in weekDays" :key="index" tag="li" :to="weekDay">
-                  <a>
+                <li v-for="(weekDay, index) in weekDays" :key="index">
+                  <a :href="'#' + weekDay">
                     <v-icon name="calendar"></v-icon> {{ weekDay }}
                   </a>
-                </router-link>
+                </li>
               </ul>
             </div>
           </nav>
@@ -41,10 +41,8 @@
       </div>
     </div>
 
-    <!-- Route Outlet -->
-    <transition name="slide" mode="out-in">
-      <router-view :key="$route.fullPath"></router-view>
-    </transition>
+    <!-- Component Day View -->
+    <dayview></dayview>
 
     <!-- Footer -->
     <footer class="footer">
@@ -52,8 +50,8 @@
         <p class="has-text-weight-semibold">{{ table.class }} Time Table</p>
         <p class="has-text-grey is-size-7">Last updated on <span class="has-text-weight-semibold">{{ table.date }}</span></p>
         <p class="is-size-7">
-          <a href="./mobile.html">
-            <v-icon name="tablet"></v-icon>
+          <a href="./">
+            <v-icon name="monitor"></v-icon>
           </a>
         </p>
       </div>
@@ -62,10 +60,10 @@
 
   <!-- Template for Day View -->
   <template id="dayview-template">
-    <section class="section">
-      <div class="container">
-        <h1 class="title">{{ data.day }}</h1>
-        <div v-for="lecture in data.lectures" class="meta">
+    <div class="container">
+      <section v-for="item in data" :id="item.day" class="section section-meta">
+        <h1 class="title">{{ item.day }}</h1>
+        <div v-for="lecture in item.lectures" class="meta">
           <h2 class="subtitle has-text-grey">
             <v-icon name="clock"></v-icon> {{ lecture.time }}
           </h2>
@@ -81,12 +79,13 @@
             </p>
           </div>
         </div>
-      </div>
+    </div>
     </section>
+    </div>
   </template>
 
   <!-- Scripts -->
-  <script src="./main.js"></script>
+  <script src="./mobile.js"></script>
 </body>
 
 </html>
