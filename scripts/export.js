@@ -26,7 +26,7 @@ function saveJson(content, filename) {
 
   // Write to a JSON file
   fs.writeFile(`${dir}/${filename}`, JSON.stringify(content, null, 2), (error) => {
-    console.log(`Content saved to ${dir}/${filename}!`);
+    console.log(`Exported to ${dir}/${filename}`);
   });
 }
 
@@ -114,15 +114,15 @@ function replaceValue(arr) {
     }],
     ["BSBC203", {
       code: "BSBC203",
-      name: "Web Development"
+      name: "C++"
     }],
     ["BSBC204", {
       code: "BSBC204",
-      name: "CSA"
+      name: "Computer System Architecture"
     }],
     ["BSBC205", {
       code: "BSBC205",
-      name: "C++"
+      name: "Web Development"
     }],
     ["BSBC206", {
       code: "BSBC206",
@@ -146,8 +146,8 @@ function replaceValue(arr) {
       name: "Gurpreet Kaur"
     }],
     ["RA", {
-      code: "GK",
-      name: "Gurpreet Kaur"
+      code: "RA",
+      name: "Richa Arora"
     }],
     ["HPS", {
       code: "HPS",

@@ -29,13 +29,13 @@ const DayView = Vue.component("dayview", {
           return "is-turquoise";
           break;
         case "BSBC203":
-          return "is-orange";
+          return "is-purple";
           break;
         case "BSBC204":
           return "is-cyan";
           break;
         case "BSBC205":
-          return "is-purple";
+          return "is-orange";
           break;
         case "BSBC206":
           return "is-dark";

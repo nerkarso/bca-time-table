@@ -1,6 +1,6 @@
 {
   "name": "pcte-time-table",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "A human readable format of the PCTE time table.",
   "author": "Ner Karso",
   "license": "ISC",
