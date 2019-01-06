@@ -1,4 +1,13 @@
 /**
+ * Variables
+ */
+
+$shadow-1: 0px 1px 10px rgba(0, 0, 0, 0.2);
+$shadow-2: 0px 2px 12px rgba(0, 0, 0, 0.3);
+$shadow-3: 0px 2px 14px 2px rgba(0, 0, 0, 0.3);
+
+
+/**
  * Global
  */
 
@@ -8,16 +17,32 @@ a {
 }
 
 /**
+ * Navbar
+ */
+
+.navbar.has-shadow {
+  box-shadow: $shadow-1;
+}
+
+.navbar-item.has-tabs {
+  padding: 0;
+}
+
+.navbar-item.has-tabs .tabs a {
+  padding: 0.9em 1em;
+}
+
+/**
  * Icon
  */
 
 .icon {
+  height: 1.25rem;
   vertical-align: middle;
 }
 
 .meta {
   .icon {
-    height: 1.25rem;
     margin-top: -5px;
   }
 
@@ -55,6 +80,14 @@ a {
 
 .hero-body {
   padding: 2rem 1rem;
+}
+
+/**
+ * Section
+ */
+
+.section.section-meta {
+  padding-top: 4.5rem;
 }
 
 /**

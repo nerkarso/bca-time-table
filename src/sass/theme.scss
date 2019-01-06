@@ -10,17 +10,21 @@ $cyan: hsl(204, 100%, 45%);
 $blue: hsl(245, 98%, 24%);
 $purple: hsl(271, 82%, 52%);
 $red: hsl(359, 100%, 45%);
+$red-shaded: hsla(359, 100%, 45%, 0.075);
 
 // Update Bulma's global variables
 $primary: $blue;
 $link: $red;
 $link-hover: $red;
 $link-active: $red;
-
 $custom-colors: ("red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "turquoise": $turquoise, "cyan": $cyan, "blue": $blue, "purple": $purple);
 
 // Update some of Bulma's component variables
 $section-padding: 2rem 1rem;
+$tabs-border-bottom-style: "none";
+$tabs-boxed-link-radius: 0;
+$tabs-link-hover-color: $red;
+$tabs-boxed-link-hover-background-color: $red-shaded;
 
 // Import only what you need from Bulma
 @import "../../node_modules/bulma/sass/utilities/_all.sass";

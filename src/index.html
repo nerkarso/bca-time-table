@@ -12,34 +12,42 @@
   <link rel="icon" href="./static/logo.png" type="image/png" />
 
   <!-- PWA -->
-  <meta name="theme-color" content="#0c017b" />
-	<link rel="manifest" href="./manifest.webmanifest" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="manifest" href="./manifest.webmanifest" />
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./sass/theme.scss" />
   <link rel="stylesheet" href="./sass/main.scss" />
 </head>
 
-<body>
+<body class="has-navbar-fixed-top">
   <div id="app">
+    <!-- Navbar -->
+    <div class="navbar is-fixed-top has-shadow">
+      <div class="container">
+        <div class="navbar-item has-tabs">
+          <nav class="tabs is-boxed is-fullwidth">
+            <div class="container">
+              <ul>
+                <li v-for="(weekDay, index) in weekDays" :key="index">
+                  <a :href="'./#' + weekDay">
+                    <v-icon name="calendar"></v-icon> {{ weekDay }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+
     <!-- Hero -->
-    <section class="hero is-primary">
+    <section class="hero is-light">
       <div class="hero-body">
         <div class="container">
           <h1 class="title">{{ table.class }}</h1>
           <h2 class="subtitle is-size-6">{{ table.date }}</h2>
         </div>
-      </div>
-      <div class="hero-foot">
-        <nav class="tabs is-boxed is-fullwidth">
-          <div class="container">
-            <ul>
-              <li v-for="(weekDay, index) in weekDays" :key="index">
-                <a :href="'./#' + weekDay">{{ weekDay }}</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
       </div>
     </section>
 
@@ -62,7 +70,7 @@
   <!-- Template Day View -->
   <template id="dayview-template">
     <div class="container">
-      <section v-for="item in data" :id="item.day" class="section">
+      <section v-for="item in data" :id="item.day" class="section section-meta">
         <h1 class="title is-size-4">{{ item.day }}</h1>
         <div v-for="lecture in item.lectures" class="meta">
           <h2 class="subtitle">
