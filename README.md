@@ -8,6 +8,8 @@ A human readable format of the PCTE time table.
 
 * [Bulma](https://bulma.io)
 * [node-xlsx](https://github.com/mgcrea/node-xlsx)
+* [Sass](https://sass-lang.com)
+* [vue-icon](https://github.com/qinshenxue/vue-icon)
 * [Vue.js](https://vuejs.org)
 
 ### Requirements
@@ -27,15 +29,19 @@ A human readable format of the PCTE time table.
 ```bash
 # Export Excel sheet to JSON file
 $ npm run export
-# ./data/table.json
+# Export to ./data/table.json
 
 # Starts up Parcel development server
 $ npm start
-# ./dist is the output directory
+# Output directory is ./dist/
 
 # Builds the assets once for production
 $ npm run build
-# ./build is the output directory
+# Output directory ./build/
+
+# Deploy build files to production
+$ npm run deploy:local
+# Output directory is D:/www/apps/pcte-time-table/
 ```
 
 ## License
