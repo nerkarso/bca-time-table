@@ -11,6 +11,7 @@ A human readable format of the PCTE time table.
 * [Sass](https://sass-lang.com)
 * [vue-icon](https://github.com/qinshenxue/vue-icon)
 * [Vue.js](https://vuejs.org)
+* [Vue Router](https://router.vuejs.org)
 
 ### Requirements
 

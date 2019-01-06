@@ -25,6 +25,8 @@ $tabs-border-bottom-style: "none";
 $tabs-boxed-link-radius: 0;
 $tabs-link-hover-color: $red;
 $tabs-boxed-link-hover-background-color: $red-shaded;
+$tabs-boxed-link-active-border-color: transparent;
+$tabs-boxed-link-active-background-color: $red-shaded;
 
 // Import only what you need from Bulma
 @import "../../node_modules/bulma/sass/utilities/_all.sass";

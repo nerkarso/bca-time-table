@@ -29,11 +29,11 @@
           <nav class="tabs is-boxed is-fullwidth">
             <div class="container">
               <ul>
-                <li v-for="(weekDay, index) in weekDays" :key="index">
-                  <a :href="'./#' + weekDay">
+                <router-link v-for="(weekDay, index) in weekDays" :key="index" tag="li" :to="weekDay">
+                  <a>
                     <v-icon name="calendar"></v-icon> {{ weekDay }}
                   </a>
-                </li>
+                </router-link>
               </ul>
             </div>
           </nav>
@@ -41,34 +41,27 @@
       </div>
     </div>
 
-    <!-- Hero -->
-    <section class="hero is-light">
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <h1 class="title">{{ table.class }}</h1>
-          <h2 class="subtitle is-size-6">{{ table.date }}</h2>
-        </div>
-      </div>
-    </section>
-
-    <!-- Component Day View -->
-    <dayview></dayview>
+    <!-- Route Outlet -->
+    <transition name="slide" mode="out-in">
+      <router-view :key="$route.fullPath"></router-view>
+    </transition>
 
     <!-- Footer -->
     <footer class="footer">
       <div class="content has-text-centered">
-        <strong>PCTE Time Table</strong> by <a href="https://nerkarso.github.io" target="_blank">Ner karso</a>
+        <p class="has-text-weight-semibold">{{ table.class }} Time Table</p>
+        <p class="has-text-grey is-size-7">Last updated on <span class="has-text-weight-semibold">{{ table.date }}</span></p>
       </div>
     </footer>
   </div>
 
-  <!-- Template Day View -->
+  <!-- Template for Day View -->
   <template id="dayview-template">
-    <div class="container">
-      <section v-for="item in data" :id="item.day" class="section section-meta">
-        <h1 class="title is-size-4">{{ item.day }}</h1>
-        <div v-for="lecture in item.lectures" class="meta">
-          <h2 class="subtitle">
+    <section class="section">
+      <div class="container">
+        <h1 class="title">{{ data.day }}</h1>
+        <div v-for="lecture in data.lectures" class="meta">
+          <h2 class="subtitle has-text-grey">
             <v-icon name="clock"></v-icon> {{ lecture.time }}
           </h2>
           <div class="notification" :class="getColor(lecture.subject.code)">
@@ -83,8 +76,8 @@
             </p>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </template>
 
   <!-- Scripts -->
