@@ -29,20 +29,66 @@ A human readable format of the PCTE time table.
 
 ```bash
 # Export Excel sheet to JSON file
-$ npm run export
+npm run export
 # Export to ./data/table.json
 
 # Starts up Parcel development server
-$ npm start
+npm start
 # Output directory is ./dist/
 
 # Builds the assets once for production
-$ npm run build
+npm run build
 # Output directory ./build/
 
 # Deploy build files to production
-$ npm run deploy:local
+npm run deploy:local
 # Output directory is D:/www/apps/pcte-time-table/
+```
+
+### Database
+
+A small [JSON file](./data/db.json) to hold necessary values during the export process. If this file is not present, then please create one just like the example below and save it as `./data/db.json`.
+
+#### Example
+
+```json
+{
+  "class": "CLASSNAME",
+  "date": "DATE",
+  "dictionary": [
+    ["CODE", {
+      "code": "CODE",
+      "name": "NAME"
+    }]
+  ],
+  "weekdays": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ],
+  "time": [
+    "09:00 - 10:00",
+    "10:05 - 11:05",
+    "11:25 - 12:25",
+    "12:30 - 1:30",
+    "01:35 - 02:35",
+    "02:40 - 03:40",
+    "03.40 - 04.40"
+  ]
+}
+```
+
+#### Dictionary
+
+In the `"dictionary"` key, you can specify which value from the Excel sheet will be replaced when it is exported to a JSON file.
+
+```json
+"dictionary": [
+  ["FIND_THIS", {"REPLACE_WITH_THIS"}]
+]
 ```
 
 ## License

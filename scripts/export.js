@@ -2,9 +2,9 @@ const xlsx = require("node-xlsx").default;
 const fs = require("fs");
 
 // Global variables
-const sheetPath = "./data/sheet.xlsx";
-const className = "BCA-1B";
-const date = "Monday Jan 7, 2019";
+const DATA_DIR = "./data";
+const SHEET_PATH = DATA_DIR + "/sheet.xlsx";
+const DB = require("." + DATA_DIR + "/db.json");
 
 /**
  * Save JSON
@@ -16,7 +16,7 @@ const date = "Monday Jan 7, 2019";
  */
 function saveJson(content, filename) {
   // Output directory
-  const dir = "./data";
+  const dir = DATA_DIR;
 
   // Check if directory exists
   if (!fs.existsSync(dir)) {
@@ -37,28 +37,7 @@ function saveJson(content, filename) {
  * @returns {string} name of the day.
  */
 function getDay(index) {
-  switch (index) {
-    case 0:
-      return "Monday";
-      break;
-    case 1:
-      return "Tuesday";
-      break;
-    case 2:
-      return "Wednesday";
-      break;
-    case 3:
-      return "Thursday";
-      break;
-    case 4:
-      return "Friday";
-      break;
-    case 5:
-      return "Saturday";
-      break;
-    default:
-      return "";
-  }
+  return DB.weekdays[index];
 }
 
 /**
@@ -68,31 +47,7 @@ function getDay(index) {
  * @returns {string} lecture time duration.
  */
 function getTime(index) {
-  switch (index) {
-    case 0:
-      return "09:00 - 10:00";
-      break;
-    case 1:
-      return "10:05 - 11:05";
-      break;
-    case 2:
-      return "11:25 - 12:25";
-      break;
-    case 3:
-      return "12:30 - 1:30";
-      break;
-    case 4:
-      return "01:35 - 02:35";
-      break;
-    case 5:
-      return "02:40 - 03:40";
-      break;
-    case 6:
-      return "03.40 - 04.40";
-      break;
-    default:
-      return "";
-  }
+  return DB.time[index];
 }
 
 /**
@@ -101,72 +56,14 @@ function getTime(index) {
  * @returns 
  */
 function replaceValue(arr) {
-  // Variables
-  const dictionary = [
-    // Subjects
-    ["BSBC201", {
-      code: "BSBC201",
-      name: "Communication"
-    }],
-    ["BSBC202", {
-      code: "BSBC202",
-      name: "Mathematics"
-    }],
-    ["BSBC203", {
-      code: "BSBC203",
-      name: "C++"
-    }],
-    ["BSBC204", {
-      code: "BSBC204",
-      name: "Computer System Architecture"
-    }],
-    ["BSBC205", {
-      code: "BSBC205",
-      name: "Web Development"
-    }],
-    ["BSBC206", {
-      code: "BSBC206",
-      name: "C++ (Lab)"
-    }],
-    ["EVSC", {
-      code: "EVSC101",
-      name: "Environmental Science"
-    }],
-    // Faculty
-    ["NB", {
-      code: "NB",
-      name: "NB"
-    }],
-    ["PK", {
-      code: "PK",
-      name: "Prabhjot Kaur"
-    }],
-    ["GK", {
-      code: "GK",
-      name: "Gurpreet Kaur"
-    }],
-    ["RA", {
-      code: "RA",
-      name: "Richa Arora"
-    }],
-    ["HPS", {
-      code: "HPS",
-      name: "Harinder Pal Singh"
-    }],
-    ["SNEHA", {
-      code: "SNEHA",
-      name: "SNEHA"
-    }]
-  ]
-
   // Map array
   arr.map((value, index) => {
-    // Iterate through dictionary
-    for (let i = 0; i < dictionary.length; i++) {
-      // Check if value matches dictionary
-      if (value.toLowerCase() == dictionary[i][0].toLowerCase()) {
+    // Iterate through database
+    for (let i = 0; i < DB.dictionary.length; i++) {
+      // Check if value matches DB
+      if (value.toLowerCase() == DB.dictionary[i][0].toLowerCase()) {
         // Replace value
-        arr[index] = dictionary[i][1];
+        arr[index] = DB.dictionary[i][1];
       }
     }
   });
@@ -228,7 +125,7 @@ function groupByLecture(arr) {
  */
 function importSheet() {
   // Parse Excel file
-  const content = xlsx.parse(sheetPath);
+  const content = xlsx.parse(SHEET_PATH);
 
   // Return JSON content
   return content;
@@ -248,7 +145,7 @@ async function exportTable(content) {
   // Map content data
   await content[0].data.map((value, index) => {
     // Check if value matches
-    if (value[1] == className) {
+    if (value[1] == DB.class) {
       // Remove first 2 items of value array
       value.splice(0, 2);
       // Add value array to data array
@@ -267,8 +164,8 @@ async function exportTable(content) {
 
   // Write content to JSON file
   saveJson({
-    class: className,
-    date: date,
+    class: DB.class,
+    date: DB.date,
     data: table
   }, "table.json");
 }
