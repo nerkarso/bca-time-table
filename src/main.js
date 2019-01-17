@@ -62,9 +62,11 @@ const router = new VueRouter({
   linkActiveClass: "is-active",
   routes: [{
     path: "/:id",
+    name: "dayview",
     component: DayView
   }]
 });
+
 
 // App
 new Vue({
@@ -77,12 +79,16 @@ new Vue({
     } catch (erro) {}
 
     // Go to first week day
-    this.$router.push(this.weekDays[0]);
+    this.$router.push(this.weekDays[this.currentDayIndex]);
+
+    // Register event listeners
+    this.eventListeners();
   },
   data() {
     return {
       table: Table,
-      weekDays: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      weekDays: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      currentDayIndex: 0
     }
   },
   computed: {
@@ -90,6 +96,54 @@ new Vue({
     weekDay() {
       const date = new Date();
       return this.weekDays[date.getDay() + 1];
+    }
+  },
+  watch: {
+    '$route'(to, from) {
+      // Update current day index
+      this.currentDayIndex = to.params.index;
+    }
+  },
+  methods: {
+    /**
+     * Navigate
+     */
+    navigate() {
+      this.$router.push({
+        name: 'dayview',
+        params: {
+          id: this.weekDays[this.currentDayIndex],
+          index: this.currentDayIndex
+        }
+      });
+    },
+    /**
+     * Event Listeners
+     */
+    eventListeners() {
+      // Add event listener
+      document.addEventListener("keydown", (event) => {
+        switch (event.keyCode) {
+          case 37:
+            // Key left
+            if (this.currentDayIndex > 0) {
+              // Decrement current day index
+              this.currentDayIndex--;
+              // Navigate
+              this.navigate();
+            }
+            break;
+          case 39:
+            // Key right
+            if (this.currentDayIndex < this.weekDays.length - 1) {
+              // Increment current day index
+              this.currentDayIndex++;
+              // Navigate
+              this.navigate();
+            }
+            break;
+        }
+      });
     }
   },
   components: {

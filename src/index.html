@@ -29,7 +29,7 @@
           <nav class="tabs is-boxed is-fullwidth">
             <div class="container">
               <ul>
-                <router-link v-for="(weekDay, index) in weekDays" :key="index" tag="li" :to="weekDay">
+                <router-link v-for="(weekDay, index) in weekDays" :key="index" tag="li" :to="{ name: 'dayview', params: { id: weekDay, index: index }}">
                   <a>
                     <v-icon name="calendar"></v-icon> {{ weekDay }}
                   </a>
