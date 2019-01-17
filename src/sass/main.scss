@@ -11,6 +11,10 @@ $shadow-3: 0px 2px 14px 2px rgba(0, 0, 0, 0.3);
  * Global
  */
 
+html {
+  overflow-y: auto;
+}
+
 a {
   /* for remove highlight */
   -webkit-tap-highlight-color: transparent;
@@ -70,6 +74,7 @@ a {
   }
 
   .notification {
+    min-height: 112px;
     padding: 1.25rem 1rem;
   }
 }
@@ -85,6 +90,10 @@ a {
 /**
  * Section
  */
+
+.section {
+  min-height: calc(100vh - 196px);
+}
 
 .section.section-meta {
   padding-top: 4.5rem;
