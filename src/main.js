@@ -76,10 +76,10 @@ new Vue({
     // Update document title
     try {
       document.title = document.title.replace("PCTE", Table.class);
-    } catch (erro) {}
+    } catch (err) {}
 
     // Go to first week day
-    this.$router.push(this.weekDays[this.currentDayIndex]);
+    this.navigate();
 
     // Register event listeners
     this.eventListeners();
@@ -126,7 +126,7 @@ new Vue({
         switch (event.keyCode) {
           case 37:
             // Key left
-            if (this.currentDayIndex > 0) {
+            if (this.currentDayIndex !== 0 && this.currentDayIndex > 0) {
               // Decrement current day index
               this.currentDayIndex--;
               // Navigate
