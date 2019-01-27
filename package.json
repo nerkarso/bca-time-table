@@ -12,7 +12,8 @@
     "start": "parcel ./src/index.html --no-cache",
     "build": "parcel build ./src/index.html -d build/ --no-cache --no-source-maps --public-url ./",
     "export": "node ./scripts/export.js",
-    "upload:local": "node ./scripts/upload.js"
+    "upload:local": "node ./scripts/upload.js",
+    "deploy:local": "npm run export && npm run build && npm run upload:local"
   },
   "dependencies": {
     "bulma": "^0.7.2",

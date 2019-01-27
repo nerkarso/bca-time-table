@@ -43,6 +43,10 @@ npm run build
 # Upload build files to local server
 npm run upload:local
 # Output directory is D:/www/apps/pcte-time-table/
+
+# Deploy locally
+npm run deploy:local
+# This runs export, build and upload in a sequence
 ```
 
 ### Database
