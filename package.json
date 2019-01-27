@@ -12,17 +12,18 @@
     "start": "parcel ./src/index.html --no-cache",
     "build": "parcel build ./src/index.html -d build/ --no-cache --no-source-maps --public-url ./",
     "export": "node ./scripts/export.js",
-    "deploy:local": "node ./scripts/deploy.js"
+    "upload:local": "node ./scripts/upload.js"
   },
   "dependencies": {
     "bulma": "^0.7.2",
-    "node-xlsx": "^0.12.1",
     "vue": "^2.5.21",
     "vue-icon": "^2.1.1",
     "vue-router": "^3.0.2"
   },
   "devDependencies": {
+    "chalk": "^2.4.2",
     "cssnano": "^4.1.8",
+    "node-xlsx": "^0.12.1",
     "sass": "^1.15.3"
   }
 }

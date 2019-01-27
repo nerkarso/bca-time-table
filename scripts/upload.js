@@ -1,3 +1,4 @@
+const chalk = require("chalk");
 const fs = require("fs");
 const path = require("path");
 
@@ -18,7 +19,7 @@ function deleteFiles(directory) {
     for (const file of files) {
       fs.unlink(path.join(directory, file), err => {
         if (err) throw err;
-        console.log("Delete", file);
+        console.log(chalk.redBright("Delete"), chalk.cyanBright(path.join(directory, file)));
       });
     }
   });
@@ -38,7 +39,7 @@ function copyFiles(source, destination) {
     for (const file of files) {
       fs.copyFile(path.join(source, file), path.join(destination, file), (err) => {
         if (err) throw err;
-        console.log("Copy", file);
+        console.log(chalk.greenBright("Copy"), chalk.cyanBright(path.join(source, file)));
       });
     }
   });

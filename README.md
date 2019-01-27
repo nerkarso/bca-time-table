@@ -40,8 +40,8 @@ npm start
 npm run build
 # Output directory ./build/
 
-# Deploy build files to production
-npm run deploy:local
+# Upload build files to local server
+npm run upload:local
 # Output directory is D:/www/apps/pcte-time-table/
 ```
 
