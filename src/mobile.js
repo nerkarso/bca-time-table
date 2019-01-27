@@ -22,25 +22,25 @@ const DayView = Vue.component("dayview", {
      */
     getColor(code) {
       switch (code) {
-        case "BSBC201":
+        case "BSBC-201":
           return "is-yellow";
           break;
-        case "BSBC202":
+        case "BSBC-202":
           return "is-turquoise";
           break;
-        case "BSBC203":
+        case "BSBC-203":
           return "is-purple";
           break;
-        case "BSBC204":
+        case "BSBC-204":
           return "is-cyan";
           break;
-        case "BSBC205":
+        case "BSBC-205":
           return "is-orange";
           break;
-        case "BSBC206":
+        case "BSBC-206":
           return "is-dark";
           break;
-        case "EVSC101":
+        case "EVSC-101":
           return "is-green";
           break;
         default:
