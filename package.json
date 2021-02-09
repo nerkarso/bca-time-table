@@ -1,6 +1,6 @@
 {
   "name": "bca-time-table",
-  "version": "0.11.0",
+  "version": "1.0.0",
   "description": "A human readable format of class BCA-1B time table",
   "author": "Ner Karso",
   "keywords": [
