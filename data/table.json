@@ -1,0 +1,393 @@
+{
+  "class": "BCA-1B",
+  "date": "Monday Feb 4, 2019",
+  "data": [
+    {
+      "day": "Monday",
+      "lectures": [
+        {
+          "time": "09:00 - 10:00",
+          "subject": {
+            "code": "BSBC-202",
+            "name": "Mathematics",
+            "color": "turquoise"
+          },
+          "faculty": {
+            "code": "PK",
+            "name": "Prabhjot Kaur"
+          },
+          "room": "MTCL1"
+        },
+        {
+          "time": "10:05 - 11:05",
+          "subject": {
+            "code": "BSBC-203",
+            "name": "C++",
+            "color": "purple"
+          },
+          "faculty": {
+            "code": "GK",
+            "name": "Gurpreet Kaur"
+          },
+          "room": "MT307"
+        },
+        {
+          "time": "11:25 - 12:25",
+          "subject": {
+            "code": "BSBC-205",
+            "name": "Web Development",
+            "color": "orange"
+          },
+          "faculty": {
+            "code": "RA",
+            "name": "Richa Arora"
+          },
+          "room": "MTCL3"
+        },
+        {
+          "time": "12:30 - 1:30",
+          "subject": {
+            "code": "BSBC-205",
+            "name": "Web Development",
+            "color": "orange"
+          },
+          "faculty": {
+            "code": "RA",
+            "name": "Richa Arora"
+          },
+          "room": "MTCL3"
+        }
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "lectures": [
+        {
+          "time": "09:00 - 10:00",
+          "subject": {
+            "code": "BSBC-203",
+            "name": "C++",
+            "color": "purple"
+          },
+          "faculty": {
+            "code": "GK",
+            "name": "Gurpreet Kaur"
+          },
+          "room": "MT307"
+        },
+        {
+          "time": "10:05 - 11:05",
+          "subject": {
+            "code": "BSBC-201",
+            "name": "Communication",
+            "color": "yellow"
+          },
+          "faculty": {
+            "code": "NB",
+            "name": "Namrata Bhalla"
+          },
+          "room": "MT307"
+        },
+        {
+          "time": "11:25 - 12:25",
+          "subject": {
+            "code": "BSBC-204",
+            "name": "Computer System Architecture",
+            "color": "cyan"
+          },
+          "faculty": {
+            "code": "HPS",
+            "name": "Harinder Pal Singh"
+          },
+          "room": "MT306"
+        },
+        {
+          "time": "12:30 - 1:30",
+          "subject": {
+            "code": "BSBC-203",
+            "name": "C++",
+            "color": "purple"
+          },
+          "faculty": {
+            "code": "GK",
+            "name": "Gurpreet Kaur"
+          },
+          "room": "MT304"
+        }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "lectures": [
+        {
+          "time": "09:00 - 10:00",
+          "subject": {
+            "code": "BSBC-203",
+            "name": "C++",
+            "color": "purple"
+          },
+          "faculty": {
+            "code": "GK",
+            "name": "Gurpreet Kaur"
+          },
+          "room": "MT304"
+        },
+        {
+          "time": "10:05 - 11:05",
+          "subject": {
+            "code": "BSBC-202",
+            "name": "Mathematics",
+            "color": "turquoise"
+          },
+          "faculty": {
+            "code": "PK",
+            "name": "Prabhjot Kaur"
+          },
+          "room": "MT304"
+        },
+        {
+          "time": "11:25 - 12:25",
+          "subject": {
+            "code": "BSBC-201",
+            "name": "Communication",
+            "color": "yellow"
+          },
+          "faculty": {
+            "code": "NB",
+            "name": "Namrata Bhalla"
+          },
+          "room": "MT307"
+        },
+        {
+          "time": "12:30 - 1:30",
+          "subject": {
+            "code": "BSBC-201",
+            "name": "Communication",
+            "color": "yellow"
+          },
+          "faculty": {
+            "code": "NB",
+            "name": "Namrata Bhalla"
+          },
+          "room": "MT304"
+        },
+        {
+          "time": "01:35 - 02:35",
+          "subject": {
+            "code": "EVSC-101",
+            "name": "Environmental Science",
+            "color": "green"
+          },
+          "faculty": {
+            "code": "SNEHA",
+            "name": "Sneha Joshi"
+          },
+          "room": "MT304"
+        }
+      ]
+    },
+    {
+      "day": "Thursday",
+      "lectures": [
+        {
+          "time": "09:00 - 10:00",
+          "subject": {
+            "code": "BSBC-206",
+            "name": "C++ (Lab)",
+            "color": "dark"
+          },
+          "faculty": {
+            "code": "GK",
+            "name": "Gurpreet Kaur"
+          },
+          "room": "MTCL3"
+        },
+        {
+          "time": "10:05 - 11:05",
+          "subject": {
+            "code": "BSBC-206",
+            "name": "C++ (Lab)",
+            "color": "dark"
+          },
+          "faculty": {
+            "code": "GK",
+            "name": "Gurpreet Kaur"
+          },
+          "room": "MTCL3"
+        },
+        {
+          "time": "11:25 - 12:25",
+          "subject": {
+            "code": "BSBC-204",
+            "name": "Computer System Architecture",
+            "color": "cyan"
+          },
+          "faculty": {
+            "code": "HPS",
+            "name": "Harinder Pal Singh"
+          },
+          "room": "MT304"
+        },
+        {
+          "time": "12:30 - 1:30",
+          "subject": {
+            "code": "BSBC-204",
+            "name": "Computer System Architecture",
+            "color": "cyan"
+          },
+          "faculty": {
+            "code": "HPS",
+            "name": "Harinder Pal Singh"
+          },
+          "room": "MT304"
+        },
+        {
+          "time": "01:35 - 02:35",
+          "subject": "",
+          "faculty": "",
+          "room": ""
+        },
+        {
+          "time": "02:40 - 03:40",
+          "subject": {
+            "code": "BSBC-201",
+            "name": "Communication",
+            "color": "yellow"
+          },
+          "faculty": {
+            "code": "NB",
+            "name": "Namrata Bhalla"
+          },
+          "room": "MT203"
+        },
+        {
+          "time": "03:40 - 04:40",
+          "subject": {
+            "code": "EVSC-101",
+            "name": "Environmental Science",
+            "color": "green"
+          },
+          "faculty": {
+            "code": "SNEHA",
+            "name": "Sneha Joshi"
+          },
+          "room": "MT306"
+        }
+      ]
+    },
+    {
+      "day": "Friday",
+      "lectures": [
+        {
+          "time": "09:00 - 10:00",
+          "subject": {
+            "code": "BSBC-206",
+            "name": "C++ (Lab)",
+            "color": "dark"
+          },
+          "faculty": {
+            "code": "GK",
+            "name": "Gurpreet Kaur"
+          },
+          "room": "MTCL1"
+        },
+        {
+          "time": "10:05 - 11:05",
+          "subject": {
+            "code": "BSBC-206",
+            "name": "C++ (Lab)",
+            "color": "dark"
+          },
+          "faculty": {
+            "code": "GK",
+            "name": "Gurpreet Kaur"
+          },
+          "room": "MTCL1"
+        },
+        {
+          "time": "11:25 - 12:25",
+          "subject": {
+            "code": "BSBC-202",
+            "name": "Mathematics",
+            "color": "turquoise"
+          },
+          "faculty": {
+            "code": "PK",
+            "name": "Prabhjot Kaur"
+          },
+          "room": "MT306"
+        },
+        {
+          "time": "12:30 - 1:30",
+          "subject": {
+            "code": "EVSC-101",
+            "name": "Environmental Science",
+            "color": "green"
+          },
+          "faculty": {
+            "code": "SNEHA",
+            "name": "Sneha Joshi"
+          },
+          "room": "MT305"
+        }
+      ]
+    },
+    {
+      "day": "Saturday",
+      "lectures": [
+        {
+          "time": "09:00 - 10:00",
+          "subject": {
+            "code": "BSBC-202",
+            "name": "Mathematics",
+            "color": "turquoise"
+          },
+          "faculty": {
+            "code": "PK",
+            "name": "Prabhjot Kaur"
+          },
+          "room": "MT306"
+        },
+        {
+          "time": "10:05 - 11:05",
+          "subject": {
+            "code": "BSBC-202",
+            "name": "Mathematics",
+            "color": "turquoise"
+          },
+          "faculty": {
+            "code": "PK",
+            "name": "Prabhjot Kaur"
+          },
+          "room": "MT306"
+        },
+        {
+          "time": "11:25 - 12:25",
+          "subject": {
+            "code": "BSBC-205",
+            "name": "Web Development",
+            "color": "orange"
+          },
+          "faculty": {
+            "code": "RA",
+            "name": "Richa Arora"
+          },
+          "room": "MTCL1"
+        },
+        {
+          "time": "12:30 - 1:30",
+          "subject": {
+            "code": "BSBC-205",
+            "name": "Web Development",
+            "color": "orange"
+          },
+          "faculty": {
+            "code": "RA",
+            "name": "Richa Arora"
+          },
+          "room": "MTCL1"
+        }
+      ]
+    }
+  ]
+}

@@ -24,5 +24,4 @@ jspm_packages
 
 # Output directory
 build
-data
 dist
