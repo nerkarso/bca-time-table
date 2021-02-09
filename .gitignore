@@ -12,6 +12,20 @@ build/Release
 node_modules
 jspm_packages
 
+# Editor directories and files
+.DS_Store
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+# Local env files
+.env.local
+.env.*.local
+
 # Optional npm cache directory
 .npm
 .cache

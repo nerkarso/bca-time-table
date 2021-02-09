@@ -1,30 +1,62 @@
 {
   "name": "bca-time-table",
-  "version": "1.0.0",
-  "description": "A human readable format of class BCA-1B time table",
+  "version": "2.0.0",
+  "title": "BCA Time Table",
+  "description": "A user-friendly web app of the BCA class time table",
   "author": "Ner Karso",
-  "keywords": [
-    "excel"
-  ],
   "private": true,
   "scripts": {
-    "start": "parcel ./src/index.html --no-cache",
-    "build": "parcel build ./src/index.html -d build/ --no-cache --no-source-maps --public-url ./",
     "export": "node ./scripts/export.js",
-    "upload:local": "node ./scripts/upload.js",
-    "deploy:local": "npm run export && npm run build && npm run upload:local"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "bulma": "^0.7.5",
-    "vue": "^2.5.21",
+    "register-service-worker": "^1.6.2",
+    "vue": "^2.5.22",
     "vue-icon": "^2.1.1",
-    "vue-router": "^3.0.2"
+    "vue-router": "^3.0.1",
+    "vue2-hammer": "^2.1.2",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.12.1",
+    "@vue/cli-plugin-eslint": "^3.12.1",
+    "@vue/cli-plugin-pwa": "^3.12.1",
+    "@vue/cli-service": "^3.12.1",
+    "babel-eslint": "^10.0.1",
     "chalk": "^2.4.2",
-    "cssnano": "^4.1.8",
-    "node-xlsx": "^0.12.1",
-    "parcel": "^1.12.4",
-    "sass": "^1.26.10"
-  }
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "fibers": "^3.1.1",
+    "node-xlsx": "^0.14.1",
+    "sass": "^1.16.0",
+    "sass-loader": "^7.3.1",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }

@@ -1,149 +1,115 @@
-/**
- * Variables
- */
+@charset 'utf-8';
 
-$shadow-1: 0px 1px 10px rgba(0, 0, 0, 0.2);
-$shadow-2: 0px 2px 12px rgba(0, 0, 0, 0.3);
-$shadow-3: 0px 2px 14px 2px rgba(0, 0, 0, 0.3);
+// Brand colors
+$black: #212121;
+$white: #ffffff;
+$red: #e53935;
+$orange: #ef6c00;
+$yellow: #f9a825;
+$green: #388e3c;
+$cyan: #00bcd4;
+$blue: #2196f3;
+$indigo: #1a237e;
+$purple: #673ab7;
+$pink: #d81b60;
 
-/**
- * Global
- */
+// Transparency
+$alpha: 1;
 
-html {
-  overflow-y: auto;
-}
+// Custom colors
+$custom-colors: (
+  'black': (
+    $black,
+    $white
+  ),
+  'red': (
+    rgba($red, $alpha),
+    $white
+  ),
+  'orange': (
+    rgba($orange, $alpha),
+    $white
+  ),
+  'yellow': (
+    rgba($yellow, $alpha),
+    $white
+  ),
+  'green': (
+    rgba($green, $alpha),
+    $white
+  ),
+  'cyan': (
+    rgba($cyan, $alpha),
+    $white
+  ),
+  'blue': (
+    rgba($blue, $alpha),
+    $white
+  ),
+  'indigo': (
+    rgba($indigo, $alpha),
+    $white
+  ),
+  'purple': (
+    rgba($purple, $alpha),
+    $white
+  ),
+  'pink': (
+    rgba($pink, $alpha),
+    $white
+  )
+) !default;
 
-a {
-  /* for remove highlight */
-  -webkit-tap-highlight-color: transparent;
-}
+// Custom variables
+$transition: all 0.2s ease;
 
-/**
- * Navbar
- */
+// Update Bulma's global variables
+$primary: $red;
+$link: $red;
+$link-hover: $red;
+$link-active: $red;
 
-.navbar.has-shadow {
-  box-shadow: $shadow-1;
-}
+// Import Bulma's core
+@import '../../node_modules/bulma/sass/utilities/_all.sass';
 
-.navbar-item.has-tabs {
-  padding: 0;
-}
+// Dark Theme
+// $body-background-color: mix($black, $indigo, 80%);
+// $background: mix($body-background-color, $white, 90%);
+// $navbar-background-color: mix($body-background-color, $white, 95%);
+// $border: mix($body-background-color, $white, 90%);
+// $text: mix($white, $indigo, 60%);
+// $title-color: mix($white, $indigo, 80%);
+// $subtitle-color: mix($white, $indigo, 40%);
 
-.navbar-item.has-tabs .tabs a {
-  padding: 0.9em 1em;
-}
+// Update Bulma's component variables
+$family-primary: 'Inter UI', $family-sans-serif;
+$navbar-box-shadow-size: 0 1px 0 0;
+$navbar-box-shadow-color: $border;
+$notification-padding: 1.15rem 1.2rem;
+$notification-radius: 8px;
+$section-padding: 2rem 1rem;
+$tabs-border-bottom-width: 0;
+$tabs-border-bottom-color: transparent;
+$tabs-link-active-color: $link;
+$tabs-link-hover-color: $link;
+$tabs-link-hover-border-bottom-color: $border;
+$tabs-link-padding: 0.85rem 0;
+$footer-background-color: transparent;
 
-/**
- * Icon
- */
+// Import only what you need from Bulma
+@import '../../node_modules/bulma/sass/base/_all.sass';
+@import '../../node_modules/bulma/sass/elements/container.sass';
+@import '../../node_modules/bulma/sass/elements/button.sass';
+@import '../../node_modules/bulma/sass/elements/content.sass';
+@import '../../node_modules/bulma/sass/elements/notification.sass';
+@import '../../node_modules/bulma/sass/elements/title.sass';
+@import '../../node_modules/bulma/sass/components/navbar.sass';
+@import '../../node_modules/bulma/sass/components/tabs.sass';
+@import '../../node_modules/bulma/sass/grid/columns.sass';
+@import '../../node_modules/bulma/sass/layout/_all.sass';
 
-.icon {
-  height: 1.25rem;
-  vertical-align: middle;
-}
+// Import fonts
+@import '../assets/fonts/inter-ui.css';
 
-.meta {
-  .icon {
-    margin-top: -5px;
-  }
-
-  .notification .icon {
-    height: 1rem;
-  }
-}
-
-.fab .icon {
-  height: 2rem;
-  margin-top: -5px;
-}
-
-/**
- * Meta
- */
-
-.meta:not(:last-child) {
-  margin-bottom: 2rem;
-}
-
-.meta {
-  .subtitle {
-    margin-bottom: 1rem;
-  }
-
-  .notification {
-    min-height: 112px;
-    padding: 1.25rem 1rem;
-  }
-}
-
-/**
- * Hero
- */
-
-.hero-body {
-  padding: 3rem 1rem;
-}
-
-/**
- * Section
- */
-
-.section {
-  min-height: calc(100vh - 196px);
-}
-
-.section.section-meta {
-  padding-top: 4.5rem;
-}
-
-/**
- * Footer
- */
-
-.footer {
-  padding: 2rem 1rem;
-}
-
-.footer p:not(:last-child) {
-  margin-bottom: 0.25rem;
-}
-
-.footer p:last-child {
-  margin-top: 0.75rem;
-}
-
-/**
- * Utilities
- */
-
-.text-truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/**
- * Slide Transition
- */
-
-.slide-enter-active,
-.slide-leave-active {
-  transition-duration: 0.5s;
-  transition-property: opacity, transform;
-  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
-  overflow: hidden;
-}
-
-.slide-enter {
-  opacity: 0;
-  -webkit-transform: translate(50px);
-  transform: translate(50px);
-}
-
-.slide-leave-to {
-  opacity: 0;
-  -webkit-transform: translate(-50px);
-  transform: translate(-50px);
-}
+// Import app style
+@import './_app.scss';

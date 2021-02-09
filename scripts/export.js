@@ -25,9 +25,13 @@ function saveJson(content, filename) {
   }
 
   // Write to a JSON file
-  fs.writeFile(`${dir}/${filename}`, JSON.stringify(content, null, 2), (error) => {
-    console.log(`Exported to ${dir}/${filename}`);
-  });
+  fs.writeFile(
+    `${dir}/${filename}`,
+    JSON.stringify(content, null, 2),
+    (error) => {
+      console.log(`Exported to ${dir}/${filename}`);
+    }
+  );
 }
 
 /**
@@ -110,7 +114,7 @@ function groupByLecture(arr) {
       time: getTime(index),
       subject: item[0] || '',
       faculty: item[1] || '',
-      room: item[2] || '',
+      room: item[2] ? item[2].toUpperCase() : '' || '',
     });
   });
 
@@ -140,7 +144,7 @@ function importSheet() {
 async function exportTable(content) {
   // Variables
   let data = [];
-  let table = [];
+  let days = [];
 
   // Map content data
   await content[0].data.map((value, index) => {
@@ -155,9 +159,9 @@ async function exportTable(content) {
 
   // Map data
   await data.map((value, index) => {
-    // Add value array to table array
-    table.push({
-      day: getDay(index),
+    // Add value array to days array
+    days.push({
+      name: getDay(index),
       lectures: groupByLecture(groupBySubject(replaceValue(value))),
     });
   });
@@ -167,9 +171,12 @@ async function exportTable(content) {
     {
       class: DB.class,
       date: DB.date,
-      data: table,
+      dictionary: DB.dictionary,
+      weekdays: DB.weekdays,
+      time: DB.time,
+      days: days,
     },
-    'table.json',
+    'table.json'
   );
 }
 
