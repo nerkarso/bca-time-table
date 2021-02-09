@@ -6,6 +6,8 @@
 
 <p align="center">A human readable format of class BCA-1B time table.</p>
 
+**For the latest version see [PCTE Timetable](https://github.com/nerkarso/pcte-timetable).**
+
 ## Development
 
 ### Dependencies
@@ -106,7 +108,3 @@ In the `"dictionary"` key, you can specify which value from the Excel sheet will
   ]
 ]
 ```
-
-## License
-
-This software is licensed under the terms of a proprietary license.
