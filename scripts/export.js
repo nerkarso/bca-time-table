@@ -1,14 +1,14 @@
-const xlsx = require("node-xlsx").default;
-const fs = require("fs");
+const xlsx = require('node-xlsx').default;
+const fs = require('fs');
 
 // Global variables
-const DATA_DIR = "./data";
-const SHEET_PATH = DATA_DIR + "/sheet.xlsx";
-const DB = require("." + DATA_DIR + "/db.json");
+const DATA_DIR = './data';
+const SHEET_PATH = DATA_DIR + '/sheet.xlsx';
+const DB = require('.' + DATA_DIR + '/db.json');
 
 /**
  * Save JSON
- * 
+ *
  * Save content to a JSON file.
  * @param {*} content file content.
  * @param {string} filename name of the file. `loremipsum.json`
@@ -32,8 +32,8 @@ function saveJson(content, filename) {
 
 /**
  * Get Day by index
- * 
- * @param {*} index 
+ *
+ * @param {*} index
  * @returns {string} name of the day.
  */
 function getDay(index) {
@@ -42,8 +42,8 @@ function getDay(index) {
 
 /**
  * Get Time by index
- * 
- * @param {integer} index 
+ *
+ * @param {integer} index
  * @returns {string} lecture time duration.
  */
 function getTime(index) {
@@ -52,8 +52,8 @@ function getTime(index) {
 
 /**
  * Replace Value
- * 
- * @returns 
+ *
+ * @returns
  */
 function replaceValue(arr) {
   // Map array
@@ -74,7 +74,7 @@ function replaceValue(arr) {
 
 /**
  * Group By Subject
- * 
+ *
  * @param {*} arr array of subjects, faculties and rooms.
  * @returns {*} groups of subjects.
  */
@@ -95,7 +95,7 @@ function groupBySubject(arr) {
 
 /**
  * Group By Lecture
- * 
+ *
  * @param {*} arr array of groups of subjects
  * @returns {*} groups of lectures with time.
  */
@@ -108,9 +108,9 @@ function groupByLecture(arr) {
     // Add time and item to groups array
     groups.push({
       time: getTime(index),
-      subject: item[0] || "",
-      faculty: item[1] || "",
-      room: item[2] || ""
+      subject: item[0] || '',
+      faculty: item[1] || '',
+      room: item[2] || '',
     });
   });
 
@@ -120,7 +120,7 @@ function groupByLecture(arr) {
 
 /**
  * Import Sheet
- * 
+ *
  * @returns {*} JSON content.
  */
 function importSheet() {
@@ -133,7 +133,7 @@ function importSheet() {
 
 /**
  * Export Table
- * 
+ *
  * @param {*} content JSON content from Excel sheet.
  * @returns void
  */
@@ -158,21 +158,24 @@ async function exportTable(content) {
     // Add value array to table array
     table.push({
       day: getDay(index),
-      lectures: groupByLecture(groupBySubject(replaceValue(value)))
+      lectures: groupByLecture(groupBySubject(replaceValue(value))),
     });
   });
 
   // Write content to JSON file
-  saveJson({
-    class: DB.class,
-    date: DB.date,
-    data: table
-  }, "table.json");
+  saveJson(
+    {
+      class: DB.class,
+      date: DB.date,
+      data: table,
+    },
+    'table.json',
+  );
 }
 
 /**
  * Initialize
- * 
+ *
  * @returns void
  */
 async function init() {

@@ -1,27 +1,31 @@
-# PCTE Time Table
+<p align="center">
+  <img src="src/static/logo.png" width="96" alt="Icon" />
+</p>
 
-A human readable format of the PCTE time table.
+<h1 align="center">BCA Time Table</h1>
+
+<p align="center">A human readable format of class BCA-1B time table.</p>
 
 ## Development
 
 ### Dependencies
 
-* [Bulma](https://bulma.io)
-* [node-xlsx](https://github.com/mgcrea/node-xlsx)
-* [Sass](https://sass-lang.com)
-* [vue-icon](https://github.com/qinshenxue/vue-icon)
-* [Vue.js](https://vuejs.org)
-* [Vue Router](https://router.vuejs.org)
+- [Bulma](https://bulma.io)
+- [node-xlsx](https://github.com/mgcrea/node-xlsx)
+- [Sass](https://sass-lang.com)
+- [vue-icon](https://github.com/qinshenxue/vue-icon)
+- [Vue.js](https://vuejs.org)
+- [Vue Router](https://router.vuejs.org)
 
 ### Requirements
 
-* [Node.js](https://nodejs.org) `10.x`
-* [npm](https://www.npmjs.com)
+- [Node.js](https://nodejs.org) `10.x`
+- [npm](https://www.npmjs.com)
 
 ### Installation
 
-* Clone the repository. `git clone https://<repo-url>.git`
-* Run `npm install` to install Node.js dependencies.
+- Clone the repository. `git clone https://<repo-url>.git`
+- Run `npm install` to install Node.js dependencies.
 
 ## Usage
 
@@ -30,7 +34,7 @@ A human readable format of the PCTE time table.
 ```bash
 # Export Excel sheet to JSON file
 npm run export
-# Export to ./data/table.json
+# Exports to ./data/table.json
 
 # Starts up Parcel development server
 npm start
@@ -42,7 +46,7 @@ npm run build
 
 # Upload build files to local server
 npm run upload:local
-# Output directory is D:/www/apps/pcte-time-table/
+# Output directory is D:/www/apps/bca-time-table/
 
 # Deploy locally
 npm run deploy:local
@@ -60,10 +64,13 @@ A small [JSON file](./data/db.json) to hold necessary values during the export p
   "class": "CLASSNAME",
   "date": "DATE",
   "dictionary": [
-    ["CODE", {
-      "code": "CODE",
-      "name": "NAME"
-    }]
+    [
+      "CODE",
+      {
+        "code": "CODE",
+        "name": "NAME"
+      }
+    ]
   ],
   "weekdays": [
     "Monday",
@@ -91,10 +98,15 @@ In the `"dictionary"` key, you can specify which value from the Excel sheet will
 
 ```json
 "dictionary": [
-  ["FIND_THIS", {"REPLACE_WITH_THIS"}]
+  [
+    "FIND_THIS",
+    {
+      // REPLACE_WITH_THIS
+    }
+  ]
 ]
 ```
 
 ## License
 
-This software is licensed under the terms of the Proprietary license.
+This software is licensed under the terms of a proprietary license.

@@ -17,11 +17,20 @@ $primary: $blue;
 $link: $red;
 $link-hover: $red;
 $link-active: $red;
-$custom-colors: ("red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "turquoise": $turquoise, "cyan": $cyan, "blue": $blue, "purple": $purple);
+$custom-colors: (
+  'red': $red,
+  'orange': $orange,
+  'yellow': $yellow,
+  'green': $green,
+  'turquoise': $turquoise,
+  'cyan': $cyan,
+  'blue': $blue,
+  'purple': $purple,
+);
 
 // Update some of Bulma's component variables
 $section-padding: 2rem 1rem;
-$tabs-border-bottom-style: "none";
+$tabs-border-bottom-style: 'none';
 $tabs-boxed-link-radius: 0;
 $tabs-link-hover-color: $red;
 $tabs-boxed-link-hover-background-color: $red-shaded;
@@ -29,12 +38,12 @@ $tabs-boxed-link-active-border-color: transparent;
 $tabs-boxed-link-active-background-color: $red-shaded;
 
 // Import only what you need from Bulma
-@import "../../node_modules/bulma/sass/utilities/_all.sass";
-@import "../../node_modules/bulma/sass/base/_all.sass";
-@import "../../node_modules/bulma/sass/elements/container.sass";
-@import "../../node_modules/bulma/sass/elements/notification.sass";
-@import "../../node_modules/bulma/sass/elements/title.sass";
-@import "../../node_modules/bulma/sass/components/navbar.sass";
-@import "../../node_modules/bulma/sass/components/tabs.sass";
-@import "../../node_modules/bulma/sass/grid/columns.sass";
-@import "../../node_modules/bulma/sass/layout/_all.sass";
+@import '../../node_modules/bulma/sass/utilities/_all.sass';
+@import '../../node_modules/bulma/sass/base/_all.sass';
+@import '../../node_modules/bulma/sass/elements/container.sass';
+@import '../../node_modules/bulma/sass/elements/notification.sass';
+@import '../../node_modules/bulma/sass/elements/title.sass';
+@import '../../node_modules/bulma/sass/components/navbar.sass';
+@import '../../node_modules/bulma/sass/components/tabs.sass';
+@import '../../node_modules/bulma/sass/grid/columns.sass';
+@import '../../node_modules/bulma/sass/layout/_all.sass';

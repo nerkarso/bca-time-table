@@ -1,96 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>PCTE Time Table</title>
 
-  <title>PCTE Time Table</title>
+    <!-- Icon -->
+    <link rel="icon" href="./static/logo.png" type="image/png" />
 
-  <!-- Icon -->
-  <link rel="icon" href="./static/logo.png" type="image/png" />
+    <!-- PWA -->
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="./manifest.webmanifest" />
 
-  <!-- PWA -->
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="manifest" href="./manifest.webmanifest" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./sass/theme.scss" />
+    <link rel="stylesheet" href="./sass/main.scss" />
+  </head>
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="./sass/theme.scss" />
-  <link rel="stylesheet" href="./sass/main.scss" />
-</head>
-
-<body class="has-navbar-fixed-top">
-  <div id="app">
-    <!-- Navbar -->
-    <div class="navbar is-fixed-top has-shadow">
-      <div class="container">
-        <div class="navbar-item has-tabs">
-          <nav class="tabs is-boxed is-fullwidth">
-            <div class="container">
-              <ul>
-                <router-link v-for="(weekDay, index) in weekDays" :key="index" tag="li" :to="{ name: 'dayview', params: { id: weekDay, index: index }}">
-                  <a>
-                    <v-icon name="calendar"></v-icon> {{ weekDay }}
-                  </a>
-                </router-link>
-              </ul>
-            </div>
-          </nav>
+  <body class="has-navbar-fixed-top">
+    <div id="app">
+      <!-- Navbar -->
+      <div class="navbar is-fixed-top has-shadow">
+        <div class="container">
+          <div class="navbar-item has-tabs">
+            <nav class="tabs is-boxed is-fullwidth">
+              <div class="container">
+                <ul>
+                  <router-link
+                    v-for="(weekDay, index) in weekDays"
+                    :key="index"
+                    tag="li"
+                    :to="{ name: 'dayview', params: { id: weekDay, index: index }}"
+                  >
+                    <a> <v-icon name="calendar"></v-icon> {{ weekDay }} </a>
+                  </router-link>
+                </ul>
+              </div>
+            </nav>
+          </div>
         </div>
       </div>
+
+      <!-- Route Outlet -->
+      <transition name="slide" mode="out-in">
+        <router-view :key="$route.fullPath"></router-view>
+      </transition>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p class="has-text-weight-semibold">{{ table.class }} Time Table</p>
+          <p class="has-text-grey is-size-7">
+            Last updated on <span class="has-text-weight-semibold">{{ table.date }}</span>
+          </p>
+          <p class="is-size-7">
+            <a href="./mobile.html">
+              <v-icon name="tablet"></v-icon>
+            </a>
+          </p>
+        </div>
+      </footer>
     </div>
 
-    <!-- Route Outlet -->
-    <transition name="slide" mode="out-in">
-      <router-view :key="$route.fullPath"></router-view>
-    </transition>
+    <!-- Template for Day View -->
+    <template id="dayview-template">
+      <section class="section">
+        <div class="container">
+          <h1 class="title">{{ data.day }}</h1>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p class="has-text-weight-semibold">{{ table.class }} Time Table</p>
-        <p class="has-text-grey is-size-7">Last updated on <span class="has-text-weight-semibold">{{ table.date }}</span></p>
-        <p class="is-size-7">
-          <a href="./mobile.html">
-            <v-icon name="tablet"></v-icon>
-          </a>
-        </p>
-      </div>
-    </footer>
-  </div>
-
-  <!-- Template for Day View -->
-  <template id="dayview-template">
-    <section class="section">
-      <div class="container">
-        <h1 class="title">{{ data.day }}</h1>
-
-        <div class="columns is-multiline">
-          <div v-for="lecture in data.lectures" class="column is-half-tablet is-one-third-desktop is-one-quarter-fullhd meta">
-            <h2 class="subtitle has-text-grey">
-              <v-icon name="clock"></v-icon> {{ lecture.time }}
-            </h2>
-            <div class="notification" :class="getColor(lecture.subject.code)">
-              <p v-show="lecture.subject" class="text-truncate">
-                <v-icon name="book"></v-icon> {{ lecture.subject.code }} &ndash; {{ lecture.subject.name }}
-              </p>
-              <p v-show="lecture.faculty" class="text-truncate">
-                <v-icon name="user"></v-icon> {{ lecture.faculty.code }} &ndash; {{ lecture.faculty.name }}
-              </p>
-              <p v-show="lecture.room">
-                <v-icon name="map-pin"></v-icon> {{ lecture.room }}
-              </p>
+          <div class="columns is-multiline">
+            <div
+              v-for="lecture in data.lectures"
+              class="column is-half-tablet is-one-third-desktop is-one-quarter-fullhd meta"
+            >
+              <h2 class="subtitle has-text-grey"><v-icon name="clock"></v-icon> {{ lecture.time }}</h2>
+              <div class="notification" :class="getColor(lecture.subject.code)">
+                <p v-show="lecture.subject" class="text-truncate">
+                  <v-icon name="book"></v-icon> {{ lecture.subject.code }} &ndash; {{ lecture.subject.name }}
+                </p>
+                <p v-show="lecture.faculty" class="text-truncate">
+                  <v-icon name="user"></v-icon> {{ lecture.faculty.code }} &ndash; {{ lecture.faculty.name }}
+                </p>
+                <p v-show="lecture.room"><v-icon name="map-pin"></v-icon> {{ lecture.room }}</p>
+              </div>
             </div>
           </div>
         </div>
+      </section>
+    </template>
 
-      </div>
-    </section>
-  </template>
-
-  <!-- Scripts -->
-  <script src="./main.js"></script>
-</body>
-
+    <!-- Scripts -->
+    <script src="./main.js"></script>
+  </body>
 </html>

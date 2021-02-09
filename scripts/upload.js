@@ -1,15 +1,15 @@
-const chalk = require("chalk");
-const fs = require("fs");
-const path = require("path");
+const chalk = require('chalk');
+const fs = require('fs');
+const path = require('path');
 
 // Variables
-const source = "./build/";
-const destination = "D:/www/apps/pcte-time-table/";
+const source = './build/';
+const destination = 'D:/www/apps/bca-time-table/';
 
 /**
  * Delete Files
- * 
- * @param {*} directory 
+ *
+ * @param {*} directory
  */
 function deleteFiles(directory) {
   // Read directory
@@ -17,9 +17,9 @@ function deleteFiles(directory) {
     if (err) throw err;
 
     for (const file of files) {
-      fs.unlink(path.join(directory, file), err => {
+      fs.unlink(path.join(directory, file), (err) => {
         if (err) throw err;
-        console.log(chalk.redBright("Delete"), chalk.cyanBright(path.join(directory, file)));
+        console.log(chalk.redBright('Delete'), chalk.cyanBright(path.join(directory, file)));
       });
     }
   });
@@ -27,9 +27,9 @@ function deleteFiles(directory) {
 
 /**
  * Copy Files
- * 
- * @param {*} source 
- * @param {*} destination 
+ *
+ * @param {*} source
+ * @param {*} destination
  */
 function copyFiles(source, destination) {
   // Read directory
@@ -39,7 +39,7 @@ function copyFiles(source, destination) {
     for (const file of files) {
       fs.copyFile(path.join(source, file), path.join(destination, file), (err) => {
         if (err) throw err;
-        console.log(chalk.greenBright("Copy"), chalk.cyanBright(path.join(source, file)));
+        console.log(chalk.greenBright('Copy'), chalk.cyanBright(path.join(source, file)));
       });
     }
   });
